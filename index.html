@@ -76,6 +76,10 @@ body.intro .mast-art,body:not(.intro) .mast-art{display:block}
 .mast-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
 .mast h1{font-family:var(--f-display);font-weight:900;font-size:clamp(25px,5.4vw,36px);letter-spacing:-.6px;margin:0;line-height:1.02;text-wrap:balance}
 .mast h1{text-transform:uppercase;letter-spacing:.2px}
+body:not(.inicio) .mast-top > div > p{display:none}
+body:not(.inicio) .mast h1{font-size:clamp(22px,4.2vw,30px)}
+body:not(.inicio) .mast-top{padding-bottom:12px}
+body:not(.inicio) .mast-top .me{margin-top:8px}
 .mast h1 span{color:var(--hi)}
 .logo{display:inline-flex;align-items:center;background:#fff;border-radius:10px;padding:6px 10px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.18)}
 .logo img{height:24px;width:auto;display:block}
@@ -173,8 +177,10 @@ body.intro .mast-art,body:not(.intro) .mast-art{display:block}
 .pk small{font-family:var(--f-body);font-size:14px;font-weight:500;color:#5B6573}
 .pk .pk-tag{position:absolute;top:12px;left:12px;font-size:10.5px;font-weight:800;border-radius:8px;padding:4px 8px;background:var(--c);color:#fff;letter-spacing:.3px}
 .pk .pk-n{position:absolute;top:10px;right:10px;min-width:26px;height:26px;border-radius:13px;background:var(--pop);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;padding:0 7px}
-.pk-cart{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--navy);color:#fff;border-radius:16px;padding:14px 16px}
+.pk-cart{margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--navy);color:#fff;border-radius:16px;padding:14px 16px}
 .pk-cart b{display:block;font-size:16px}.pk-cart span{font-size:13px;color:var(--on-navy-2)}
+.pk-grid{align-items:stretch}.pk .pk-body img{height:84px;width:auto!important;max-width:78%;object-fit:contain}
+@media (max-width:640px){.pk .pk-body img{height:58px}.pk-cart{flex-direction:column;align-items:stretch;text-align:left}.pk-cart .btn{width:100%}}
 @media (prefers-reduced-motion:no-preference){.pk{animation:pkin .45s ease-out both}.pk:nth-child(2){animation-delay:.07s}.pk:nth-child(3){animation-delay:.14s}@keyframes pkin{from{opacity:0;transform:translateY(12px) scale(.97)}}}
 .manual{flex:none;margin-left:auto;align-self:center;margin-bottom:8px;border:1.5px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);color:#fff;border-radius:11px;padding:6px 10px;display:flex;align-items:center;gap:6px;font-weight:700;font-size:12px;line-height:1.05;text-align:left}
 .manual:hover{background:rgba(255,255,255,.16)}
@@ -401,6 +407,15 @@ input:focus,textarea:focus{border-color:var(--acc);outline:none}
 .searchnote{margin:14px 0 0;font-size:13px;color:var(--muted)}
 .tag{position:absolute;top:8px;left:8px;font-size:10.5px;font-weight:700;border-radius:8px;padding:3px 7px;color:#fff;background:var(--omron)}
 .tag.red{background:var(--promo)}
+.tag.off{background:#1D7A3A;font-size:13px;padding:4px 9px;border-radius:9px;z-index:2;box-shadow:0 4px 10px -4px rgba(29,122,58,.6)}
+.card.dsc{border-color:#BFE3CB}
+.chip.off{border-color:#9ED3AF;color:#1D7A3A;font-weight:700}.chip.off[aria-pressed="true"]{background:#1D7A3A;border-color:#1D7A3A;color:#fff}
+.dinban{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#E9F6EE,#F4FBF6);border:1.5px solid #BFE3CB;border-radius:18px;padding:14px 16px;margin:6px 0 4px}
+.dinban .dinban-ic{flex:none;width:46px;height:46px;border-radius:14px;background:#1D7A3A;color:#fff;font-family:var(--f-display);font-weight:900;font-size:22px;display:flex;align-items:center;justify-content:center}
+.dinban b{display:block;font-size:15.5px;color:#14532D}.dinban span{display:block;font-size:12.5px;color:#3F6B50;line-height:1.35;margin-top:2px}
+.dinban > div{flex:1;min-width:0}
+.dinban-go{flex:none;background:#1D7A3A;color:#fff;border:0;border-radius:12px;padding:10px 14px;font-weight:800;font-size:13.5px;cursor:pointer}
+@media (max-width:640px){.dinban{flex-wrap:wrap}.dinban-go{width:100%}}
 .body{padding:10px 11px 11px;display:flex;flex-direction:column;gap:6px;flex:1;min-width:0}
 .name{font-weight:700;font-size:14px;line-height:1.25}
 .meta{font-family:var(--f-mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
@@ -425,6 +440,9 @@ input:focus,textarea:focus{border-color:var(--acc);outline:none}
 .bar .wrap{padding-block:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .bar .sum{font-size:13px;color:var(--on-navy-2);min-width:0}
 .bar .sum b{display:block;color:#fff;font-family:var(--f-display);font-size:17px;font-weight:800}
+.bar .sum .sum-p,.bar .sum .sum-a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .sum .sum-a{color:#8EE0A8;font-weight:700;font-size:12.5px;margin-top:1px}
+@media (max-width:640px){.bar .sum b{font-size:15px}.bar #open{padding-inline:18px;white-space:nowrap}.bar .nph{display:none}.bar .sum:has(.sum-a) .sum-p{display:none}}
 .bar.pulse #open{animation:pop .35s ease-out}
 @keyframes pop{40%{transform:scale(1.08)}}
 .btn.go.sending{opacity:.7;pointer-events:none}
@@ -566,8 +584,8 @@ footer{margin:34px 0 10px;color:var(--muted);font-size:12px;text-align:center}
 
 <section id="picker" class="wrap picker" hidden>
   <div class="pk-head"><h2>Elegí la marca</h2><p>Tocá una marca para ver sus productos. Podés sumar de todas en el mismo pedido.</p></div>
-  <div class="pk-grid" id="pkGrid"></div>
   <div class="pk-cart" id="pkCart" hidden></div>
+  <div class="pk-grid" id="pkGrid"></div>
 </section>
 
 <div id="catalog" hidden>
@@ -588,7 +606,7 @@ footer{margin:34px 0 10px;color:var(--muted);font-size:12px;text-align:center}
   <div class="bar">
     <div class="wrap">
       <div class="sum" id="sum"><b>Tu pedido está vacío</b>Sumá productos con el botón +</div>
-      <button class="btn cy" id="open" disabled>Revisar y confirmar →</button>
+      <button class="btn cy" id="open" disabled>Revisar<span class="nph"> y confirmar</span> →</button>
     </div>
   </div>
 </div>
@@ -829,7 +847,7 @@ function drogList(sep) {
   return DROGUERIAS.filter(([k]) => client.drog[k]).map(([k, n]) => k === "OTRA" ? client.drog[k] : `${n}: ${client.drog[k]}`).join(sep);
 }
 function showWelcome() {
-  document.body.classList.add("intro");
+  document.body.classList.add("intro", "inicio");
   $("#welcome").hidden = false; $("#catalog").hidden = true; $("#picker").hidden = true; $("#tabs").hidden = true; $("#me").hidden = true;
   validate(); window.scrollTo({top: 0});
 }
@@ -839,23 +857,37 @@ const ME_ICO = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stro
 const CHEV = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
 function setMe() { const n = client.drog.DDS || Object.values(client.drog)[0] || ""; $("#me").innerHTML = ME_ICO + `<span class="t">Mis datos · ${esc(String(n))}</span>` + CHEV }
 function showPicker() {
-  document.body.classList.add("intro");
+  document.body.classList.add("intro"); document.body.classList.remove("inicio");
   $("#welcome").hidden = true; $("#catalog").hidden = true; $("#tabs").hidden = true; $("#picker").hidden = false;
   $("#me").hidden = false; setMe();
   const col = {omron: "var(--omron)", algabo: "var(--algabo)", softys: "var(--softys)"};
   $("#pkGrid").innerHTML = BRANDS.map(b => {
     const n = DATA[b].filter(p => cart[p.id]).length, logo = PK_LOGO[b], lock = b === "omron" && !tieneDDS();
     return `<button type="button" class="pk${lock ? " lock" : ""}" data-b="${b}" style="--c:${col[b]}" aria-label="Ver productos de ${BNAME[b]}">
-      ${PK[b].tag ? `<span class="pk-tag">${PK[b].tag}</span>` : ""}${n ? `<span class="pk-n">${n}</span>` : ""}
+      ${(() => { const tg = b === "softys" ? (nDin() ? `${nDin()} con descuento` : "") : PK[b].tag; return tg ? `<span class="pk-tag">${tg}</span>` : "" })()}${n ? `<span class="pk-n">${n}</span>` : ""}
       <span class="pk-body"><img src="${logo}" alt="${BNAME[b]}">${lock ? `<span class="pk-lock">🔒 Disponible para clientes de Droguería del Sud. Cargá tu N° de cuenta DDS para ingresar.</span>` : `<small>${DATA[b].filter(p => !p.manual).length} ${PK[b].u}</small>`}</span>
       <span class="pk-foot">${lock ? "Cargar N° de cuenta DDS →" : "Ver productos →"}</span></button>`;
   }).join("");
   const t = totals();
-  $("#pkCart").hidden = !t.lines;
+  const ult = ultimoPedido();
+  $("#pkCart").hidden = !t.lines && !ult;
   if (t.lines) $("#pkCart").innerHTML = `<div><b>${t.lines} producto${t.lines > 1 ? "s" : ""} en tu pedido</b><span>Podés seguir sumando de otras marcas</span></div><button class="btn cy" type="button" id="pkOpen">Revisar y confirmar →</button>`;
+  else if (ult) $("#pkCart").innerHTML = `<div><b>¿Repetís tu último pedido?</b><span>${ult.n} producto${ult.n > 1 ? "s" : ""} · enviado el ${ult.fecha}. Lo cargo y lo podés editar antes de enviar.</span></div><button class="btn cy" type="button" id="pkRepeat">Repetir pedido ↻</button>`;
   try { history.replaceState(null, "", location.pathname) } catch (e) {}
   window.scrollTo({top: 0});
 }
+function ultimoPedido() {
+  const u = store.get("pedido.ultimo", null); if (!u || !u.items) return null;
+  const ids = Object.keys(u.items).filter(id => BY[id]); if (!ids.length) return null;
+  const d = new Date(u.ts); return {ids, items: u.items, n: ids.length, fecha: d.toLocaleDateString("es-AR", {day: "2-digit", month: "2-digit"})};
+}
+$("#pkCart").addEventListener("click", e => {
+  if (!e.target.closest("#pkRepeat")) return;
+  const u = ultimoPedido(); if (!u) return;
+  u.ids.forEach(id => { cart[id] = u.items[id] }); store.set("pedido.cart", cart);
+  toast("✓ Cargué tu último pedido (" + u.n + " productos). Revisalo y enviá.");
+  showPicker(); renderBar();
+});
 let promoMostrado = false;
 $("#pkGrid").addEventListener("click", e => {
   const c = e.target.closest(".pk"); if (!c) return;
@@ -899,7 +931,8 @@ function showCatalog(scroll, entrada) {
 $("#me").addEventListener("click", showWelcome);
 
 /* ---------- catalog ---------- */
-function cats() { const s = []; for (const p of DATA[brand]) if (!s.includes(p.cat)) s.push(p.cat); const n = DATA[brand].filter(p => cart[p.id]).length; return ["Todas", ...(n ? ["En mi pedido"] : []), ...s] }
+function nDin() { return DATA.softys.filter(p => dinSoftys(p)).length }
+function cats() { const s = []; for (const p of DATA[brand]) if (!s.includes(p.cat)) s.push(p.cat); const n = DATA[brand].filter(p => cart[p.id]).length; return ["Todas", ...(brand === "softys" && nDin() ? ["Con descuento"] : []), ...(n ? ["En mi pedido"] : []), ...s] }
 function norm(s) { return String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase() }
 
 function renderTabsOnly() {
@@ -918,11 +951,13 @@ function renderTabs() {
     if (n) { const d = document.createElement("span"); d.className = "dot"; d.textContent = n; t.firstChild.after(d) }
   });
   if (cat === "En mi pedido" && !DATA[brand].some(p => cart[p.id])) cat = "Todas";
+  if (cat === "Con descuento" && (brand !== "softys" || !nDin())) cat = "Todas";
   $("#chips").hidden = !!q.trim();
-  $("#chips").innerHTML = cats().map(c => `<button class="chip" aria-pressed="${c === cat}" data-c="${esc(c)}">${c === "En mi pedido" ? "✓ En mi pedido (" + DATA[brand].filter(p => cart[p.id]).length + ")" : esc(c)}</button>`).join("");
+  $("#chips").innerHTML = cats().map(c => `<button class="chip" aria-pressed="${c === cat}" data-c="${esc(c)}"${c === "Con descuento" ? ' class="chip off"' : ""}>${c === "En mi pedido" ? "✓ En mi pedido (" + DATA[brand].filter(p => cart[p.id]).length + ")" : c === "Con descuento" ? "% Con descuento (" + nDin() + ")" : esc(c)}</button>`).join("");
   $("#intro").innerHTML = brand === "omron" ? `
     <div class="promo"><div><b>Preventa con entrega en octubre · Nebulizadores a <em>$49.999</em></b><span>Descuentos adicionales por volumen. Combinalos como quieras.</span></div>
     <div class="tiers"><div class="tier"><i>12 u.</i><strong>5%</strong></div><div class="tier"><i>25 u.</i><strong>7%</strong></div><div class="tier"><i>50+ u.</i><strong>10%</strong></div></div><div class="live" id="live" style="grid-column:1/-1"></div></div>`
+    : brand === "softys" && nDin() ? `<div class="dinban"><span class="dinban-ic">%</span><div><b>${nDin()} productos con descuento en ${esc(dselNombre("softys"))}</b><span>Dinámicas de la droguería vigentes hasta el ${SOFTYS_DIN_VTO.split("-").reverse().join("/")}. El descuento se aplica al llegar al mínimo de paquetes.</span></div><button type="button" class="dinban-go" data-c="Con descuento">Ver ofertas →</button></div>`
     : "";
 }
 
@@ -939,14 +974,15 @@ function controls(p) {
 }
 function card(p, showBrand) {
   const n = cart[p.id] || 0;
-  const tag = p.gift ? `<span class="tag red">Precio especial</span>` : p.bt ? `<span class="tag">Bluetooth</span>` : "";
+  const dS = p.b === "softys" ? dinSoftys(p) : null;
+  const tag = p.gift ? `<span class="tag red">Precio especial</span>` : dS ? `<span class="tag off">−${pctS(dS[0])}</span>` : p.bt ? `<span class="tag">Bluetooth</span>` : "";
   const meta = p.b === "omron" ? `${esc(p.code)} · SAP <b>${p.sap}</b>`
     : p.b === "algabo" ? `Cód. <b>${p.code}</b>${p.box ? ` · Caja x${p.box}` : ""}`
     : `Cód. <b>${p.code}</b> · Bulto x${p.box} paq.`;
   const price = p.b === "omron" && !p.manual ? `
     <div class="price"><div class="p ${p.lp ? "red" : ""}">${p.lp ? `<s>${fmt2(p.lp)}</s>` : ""}${p.lp ? fmt(p.p) : fmt2(p.p)}<span class="lbl"> s/IVA</span></div>
     <div class="v">PVS c/IVA <strong>${fmt(p.pvs)}</strong></div></div>` : "";
-  return `<article class="card ${n ? "in" : ""} ${p.gift ? "hot" : ""}" data-id="${p.id}" data-b="${p.b}">
+  return `<article class="card ${n ? "in" : ""} ${p.gift ? "hot" : ""} ${dS ? "dsc" : ""}" data-id="${p.id}" data-b="${p.b}">
     ${tag}${n ? `<span class="qtag">${n} ${p.b === "softys" ? "paq." : "u."}</span>` : ""}<button type="button" class="ph" data-zoom aria-label="Ver foto de ${esc(p.n)}"><img src="${p.img}" alt="${esc(p.n)}" loading="lazy" decoding="async"></button>
     <div class="body">${showBrand ? `<div class="bname">${BNAME[p.b]}</div>` : ""}<div class="name">${esc(p.n)}</div><div class="meta">${meta}</div>${p.b === "softys" ? dinTag(p) : ""}${price}
       <div class="ctl" style="display:flex;flex-direction:column;gap:6px;margin-top:auto">${controls(p)}</div>
@@ -964,7 +1000,7 @@ function renderList() {
     for (const b of BRANDS) { const it = hits.filter(p => p.b === b); if (it.length) html += sec(BNAME[b], it, true) }
     $("#list").innerHTML = html; return;
   }
-  const items = DATA[brand].filter(p => cat === "Todas" || (cat === "En mi pedido" ? cart[p.id] : p.cat === cat));
+  const items = DATA[brand].filter(p => cat === "Todas" || (cat === "En mi pedido" ? cart[p.id] : cat === "Con descuento" ? dinSoftys(p) : p.cat === cat));
   let cur = null, buf = [];
   const flush = () => { if (cur !== null) html += sec(cur, buf, false) };
   for (const p of items) { if (p.cat !== cur) { flush(); cur = p.cat; buf = [] } buf.push(p) }
@@ -1011,11 +1047,13 @@ function renderBar() {
   const lv = document.getElementById("live"); if (lv) lv.innerHTML = tierBox(t);
   $("#open").disabled = !t.lines;
   const parts = [];
-  if (t.o.length) parts.push(t.pct ? `Omron ${fmt(t.net)} s/IVA (−${t.pct}%)` : `Omron ${fmt(t.net)} s/IVA`);
+  if (t.o.length) parts.push(`Omron ${fmt(t.net)}`);
   if (t.a.length) parts.push(`Algabo ${t.au} u.`);
   if (t.s.length) parts.push(`Softys ${t.su} paq.`);
+  const sd = t.s.filter(p => dtoSoftys(p, cart[p.id]) > 0).length;
+  const ahorro = [t.pct ? `−${t.pct}% Omron (${fmt(t.sub - t.net)})` : "", sd ? `${sd} con descuento Softys` : ""].filter(Boolean);
   $("#sum").innerHTML = t.lines
-    ? `<b>${t.lines} producto${t.lines > 1 ? "s" : ""} en tu pedido</b>${parts.join(" · ")}`
+    ? `<b>${t.lines} producto${t.lines > 1 ? "s" : ""} en tu pedido</b><span class="sum-p">${parts.join(" · ")}</span>${ahorro.length ? `<span class="sum-a">✓ ${ahorro.join(" · ")}</span>` : ""}`
     : `<b>Tu pedido está vacío</b>Sumá productos con el botón +`;
 }
 
@@ -1089,6 +1127,7 @@ $("#tabs").addEventListener("click", e => {
   renderTabs(); renderList(); window.scrollTo({top: 0});
 });
 $("#chips").addEventListener("click", e => { const c = e.target.closest(".chip"); if (!c) return; cat = c.dataset.c; renderTabs(); renderList() });
+$("#intro").addEventListener("click", e => { const g = e.target.closest(".dinban-go"); if (!g) return; cat = g.dataset.c; renderTabs(); renderList(); const c = $("#chips"); if (c) window.scrollTo({top: c.getBoundingClientRect().top + scrollY - 8, behavior: "smooth"}) });
 let qt; $("#q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeout(() => { q = e.target.value; renderTabs(); renderList(); window.scrollTo({top: 0}) }, 140) });
 function stepper(root) {
   root.addEventListener("click", e => {
@@ -1129,6 +1168,7 @@ function dropts(b) {
   const ks = DROGUERIAS.map(d => d[0]).filter(k => client.drog[k]);
   return b === "omron" ? ks.filter(k => k === "DDS") : ks;
 }
+function dselNombre(b) { const k = dselFor(b); return k === "OTRA" ? (client.drog[k] || "tu droguería") : ((DROGUERIAS.find(d => d[0] === k) || [k, k])[1]) }
 function dselFor(b) {
   client.sel = client.sel || {};
   const o = dropts(b);
@@ -1195,6 +1235,7 @@ $("#send").addEventListener("click", () => {
     rs.forEach((r, i) => { if (r.status === "fulfilled") ok.push(its[i]); else pend.push(its[i]) });
     if (pend.length) cola.set(cola.get().concat(pend));
     const h = store.get("pedido.hist", []); ok.forEach(it => h.unshift({nro: it.ped.ref, nota: it.ped.nota, ts: it.ped.ts})); store.set("pedido.hist", h.slice(0, 20));
+    if (ok.length || pend.length) store.set("pedido.ultimo", {ts: Date.now(), items: Object.fromEntries(Object.entries(cart).filter(([id]) => BY[id] && !BY[id].manual))});
     cart = {}; store.set("pedido.cart", cart);
     btn.classList.remove("sending"); btn.textContent = "Confirmar pedido";
     showDone(ok, pend);
@@ -1205,7 +1246,7 @@ function showDone(ok, pend) {
   const col = {omron: "var(--omron)", algabo: "var(--algabo)", softys: "var(--softys)"};
   const row = (it, enviado) => `<div class="nro" style="--c:${col[it.ped.nota]}"><div><b>${it.ped.notaNombre}</b><span>${esc(it.ped.drogNombre)} · Cliente N° ${esc(it.ped.pdv.cod)} · ${it.ped.lineas.length} producto${it.ped.lineas.length > 1 ? "s" : ""}</span></div>${enviado ? `<code>${esc(it.ped.ref)}</code>` : `<span>En cola</span>`}</div>`;
   $("#groups").innerHTML = `<div class="done"><div class="ok-ic">✓</div><h3>${pend.length && !ok.length ? "Pedido guardado" : "¡Pedido recibido!"}</h3>
-    <p>${pend.length ? "No hay conexión ahora. Tu pedido quedó guardado en este celular y se envía solo apenas vuelva la señal." : "Ya me llegó. Lo reviso y lo cargo en la droguería con tu número de cliente."}</p>
+    <p>${pend.length ? "No hay conexión ahora. Tu pedido quedó guardado en este celular y se envía solo apenas vuelva la señal." : "Lo recibimos para su validación y la aplicación de descuentos adicionales, según corresponda. Te avisamos cualquier novedad."}</p>
     <div class="nros">${ok.map(it => row(it, true)).join("")}${pend.map(it => row(it, false)).join("")}</div>
     <button class="btn go" id="again" type="button">Hacer otro pedido</button></div>`;
   $("#who").hidden = true; document.querySelector("label[for=f-obs]").hidden = true; $("#clearBox").hidden = true; $(".foot").hidden = true;
